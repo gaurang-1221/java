@@ -1,57 +1,35 @@
-import java.util.Scanner;
+class Laptop {
+    String brand;
+    String model;
+    double price;
+    int ramSize;
+    
+    public Laptop() {
+        this.brand = "Unknown";
+        this.model = "Generic Model";
+        this.price = 0.0;
+        this.ramSize = 4;
+    }
 
-// Parent class
-class BaseEmployee {
-    String name;
-    int employeeId;
-    double salary;
+    Laptop(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+        this.price = 0.0; 
+        this.ramSize = 4; 
+    }
 
-    // Constructor
-    BaseEmployee(String name, int employeeId, double salary) {
-        this.name = name;
-        this.employeeId = employeeId;
-        this.salary = salary;
+    public Laptop(String brand, String model, double price, int ramSize) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.ramSize = ramSize;
+    }
+
+    public void displayDetails() {
+        System.out.println("\nLaptop Details:");
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Price: $" + price);
+        System.out.println("RAM Size: " + ramSize + "GB");
     }
 }
-
-// Child class
-class Developer extends BaseEmployee {
-    String programmingLanguage;
-
-    // Constructor
-    Developer(String name, int employeeId, double salary, String programmingLanguage) {
-        super(name, employeeId, salary); // call parent constructor
-        this.programmingLanguage = programmingLanguage;
-    }
-
-    // Method to display details
-    void displayDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Employee ID: " + employeeId);
-        System.out.println("Salary: " + salary);
-        System.out.println("Programming Language: " + programmingLanguage);
-    }
-}
-
-// Main class
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Taking input
-        String name = sc.nextLine();
-        int employeeId = sc.nextInt();
-        double salary = sc.nextDouble();
-        sc.nextLine(); // consume leftover newline
-        String programmingLanguage = sc.nextLine();
-
-        // Create Developer object
-        Developer dev = new Developer(name, employeeId, salary, programmingLanguage);
-
-        // Display details
-        dev.displayDetails();
-
-        sc.close();
-    }
-}
-
